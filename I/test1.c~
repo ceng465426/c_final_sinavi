@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+void myStringSearch(const char *param1, const char param2, int *param3);
+
+int main ()
+{
+	char myString[] = "aabb";
+	char charToFind = 'b';
+
+	int result;
+
+	myStringSearch(myString, charToFind, &result);
+
+	if( result != -1){
+            printf("KARAKTER BULUNDU: %d\n", result);
+	} else {
+            printf("KARAKTER BULUNAMADI\n");
+	}
+
+
+	return 0;
+}
+
+void myStringSearch(const char *param1, const char param2, int *param3){
+    int index;
+
+    for(index = 0; param1[index] != '\0'; index++){
+        if(param1[index] == param2){
+            *param3 = index;
+            return;
+        }
+    }
+
+    *param3 = -1;
+}
